@@ -10,14 +10,17 @@ export class MediaItemListComponent implements OnInit {
   medium = '';
   mediaItems: MediaItem[];
 
-  constructor(private mediaItemService: MediaItemService) {}
+  constructor(private mediaItemService: MediaItemService) { }
 
   ngOnInit() {
     this.getMediaItems(this.medium);
   }
 
   onMediaItemDelete(mediaItem) {
-    this.mediaItemService.delete(mediaItem);
+    this.mediaItemService.delete(mediaItem)
+      .subscribe(() => {
+        this.getMediaItems(this.medium);
+      });
   }
 
   getMediaItems(medium) {
