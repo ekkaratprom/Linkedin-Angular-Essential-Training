@@ -8,7 +8,21 @@ import { Component, Input } from '@angular/core';
     </span>
   `,
   styles: [
-    `
+    ` :host {
+        display: block;
+        margin-bottom: 20px;
+      }
+      :host-context(.medium-movies) span {
+        background-color: #53ace4;
+      }
+      :host-context(.medium-series) span {
+        background-color: #45bf94;
+      }
+      span {
+        display: inline-block;
+        margin-right: 4px;
+        margin-bottom: 4px;
+      }
       .label {
         background-color: #999999;
         color: #ffffff;
@@ -16,11 +30,6 @@ import { Component, Input } from '@angular/core';
         padding: 2px 6px;
         font-style: italic;
         width: max-content;
-      }
-      span {
-        display: inline-block;
-        margin-right: 4px;
-        margin-bottom: 4px;
       }
     `
   ]
